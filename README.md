@@ -4,7 +4,7 @@ Laravel Auto Presenter Mapper
 [![Build Status](https://img.shields.io/travis/laravel-auto-presenter/laravel-auto-presenter/master.svg?style=flat-square)](https://travis-ci.org/laravel-auto-presenter/laravel-auto-presenter)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
-This is an extension to the excellent [//github.com/laravel-auto-presenter/laravel-auto-presenter/](laravel-auto-presenter)
+This is an extension to the excellent [laravel-auto-presenter](https://github.com/laravel-auto-presenter/laravel-auto-presenter)
 that allows you to define presenters in a service provider or on-the-fly, rather than directly on the model.
 
 ## Installing
@@ -28,7 +28,7 @@ RickSelby\LaravelAutoPresenterMapper\AutoPresenterMapperServiceProvider::class,
 
 ## Usage
 
-Read the docs at [//github.com/laravel-auto-presenter/laravel-auto-presenter/](laravel-auto-presenter) for the basic use cases.
+Read the docs at [github.com/laravel-auto-presenter/laravel-auto-presenter](https://github.com/laravel-auto-presenter/laravel-auto-presenter) for the basic use cases.
 
 With this package, instead of altering your models to implement `HasPresenter`, you can define the presenters in a service
  provider using the facade. For example:
