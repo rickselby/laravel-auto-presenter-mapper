@@ -1,7 +1,7 @@
 Laravel Auto Presenter Mapper
 =============================
 
-[![Build Status](https://img.shields.io/travis/laravel-auto-presenter/laravel-auto-presenter/master.svg?style=flat-square)](https://travis-ci.org/laravel-auto-presenter/laravel-auto-presenter)
+[![Build Status](https://img.shields.io/travis/rickselby/laravel-auto-presenter-mapper/master.svg?style=flat-square)](https://travis-ci.org/rickselby/laravel-auto-presenter-mapper)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
 This is an extension to the excellent [laravel-auto-presenter](https://github.com/laravel-auto-presenter/laravel-auto-presenter)
@@ -9,7 +9,11 @@ that allows you to define presenters in a service provider or on-the-fly, rather
 
 ## Installing
 
-(full details to follow)
+Require the project using [Composer](https://getcomposer.org):
+
+```bash
+$ composer require rickselby/laravel-auto-presenter-mapper
+```
 
 You should only add this service provider, not the original `laravel-auto-presenter` service provider, as this one
 extends it.
