@@ -1,6 +1,6 @@
 {
-  "name": "rickselby/laravel-auto-presenter-config",
-  "description": "Automatically load presenters from a config file",
+  "name": "rickselby/laravel-auto-presenter-mapper",
+  "description": "Define presenters in a service provider rather than in the model",
   "minimum-stability": "stable",
   "license": "MIT",
   "authors": [
