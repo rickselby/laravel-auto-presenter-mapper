@@ -20,9 +20,16 @@ class AutoPresenterMapper
      * @param $class
      * @param $presenter
      */
-    public function map($class, $presenter)
+    public function map($class, $presenter = null)
     {
-        $this->mappings->put($class, $presenter);
+        if (is_array($class))
+        {
+            foreach($class AS $model => $present) {
+                $this->mappings->put($model, $present);
+            }
+        } else {
+            $this->mappings->put($class, $presenter);
+        }
     }
 
     /**

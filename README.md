@@ -46,7 +46,19 @@ public function register()
 
 This will work exactly how the laravel-auto-presenter works; any `User` models passed to a view will be wrapped in `UserPresenter`.
 
-If you wish to declare a mapping on-the-fly, or override a 'default' mapping in a specific instance,
+The `map` function also takes an array:
+
+```php
+public function register()
+{
+    \Presenters::map([
+        User::class => UserPresenter::class,
+        ...
+    ]);
+}
+```
+
+If you wish to declare a mapping on-the-fly, or override a mapping in a specific instance,
 the facade can be called from anywhere:
 
 ```php
