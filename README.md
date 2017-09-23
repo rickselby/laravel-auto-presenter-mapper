@@ -22,6 +22,23 @@ Require the project using [Composer](https://getcomposer.org):
 $ composer require rickselby/laravel-auto-presenter-mapper
 ```
 
+Laravel 5.5 will auto-discover the package.
+
+For Laravel 5.1-5.4, you should only add this service provider, not the original `laravel-auto-presenter` service provider, as this one
+extends it.
+
+In your `config/app.php` add this line to your 'providers' array...
+
+```php
+RickSelby\LaravelAutoPresenterMapper\AutoPresenterMapperServiceProvider::class,
+```
+
+... and this line to your 'facades' array.
+
+```php
+'Presenters' => \RickSelby\LaravelAutoPresenterMapper\Facades\AutoPresenterMapperFacade::class,
+```
+
 ## Usage
 
 Read the docs at [github.com/laravel-auto-presenter/laravel-auto-presenter](https://github.com/laravel-auto-presenter/laravel-auto-presenter) for the basic use cases.
