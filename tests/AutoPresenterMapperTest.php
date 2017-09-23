@@ -12,17 +12,7 @@
 
 namespace RickSelby\Tests;
 
-use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
-use McCool\LaravelAutoPresenter\Decorators\DecoratorInterface;
-use McCool\LaravelAutoPresenter\Exceptions\PresenterNotFoundException;
-use McCool\Tests\Stubs\DecoratedAtom;
-use McCool\Tests\Stubs\DecoratedAtomPresenter;
-use McCool\Tests\Stubs\DependencyDecoratedAtom;
-use McCool\Tests\Stubs\DependencyDecoratedAtomPresenter;
-use McCool\Tests\Stubs\UndecoratedAtom;
-use McCool\Tests\Stubs\WronglyDecoratedAtom;
-use Mockery;
 use RickSelby\LaravelAutoPresenterMapper\AutoPresenterMapper;
 use RickSelby\Tests\Stubs\MappedStub;
 use RickSelby\Tests\Stubs\MappedStubPresenter;
@@ -33,12 +23,10 @@ class AutoPresenterMapperTest extends AbstractTestCase
     /** @var AutoPresenterMapper */
     private $autoPresenterMapper;
 
-    /**
-     * @before
-     */
-    public function setUpProperties()
+    protected function getEnvironmentSetUp($app)
     {
-        $this->autoPresenterMapper = $this->app->make(AutoPresenterMapper::class);
+        parent::getEnvironmentSetUp($app);
+        $this->autoPresenterMapper = $app->make(AutoPresenterMapper::class);
     }
 
     public function testMappingsIsCollection()
