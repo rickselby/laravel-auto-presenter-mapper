@@ -7,27 +7,21 @@ Laravel Auto Presenter Mapper
 This is an extension to the excellent [laravel-auto-presenter](https://github.com/laravel-auto-presenter/laravel-auto-presenter)
 that allows you to define presenters in a service provider or on-the-fly, rather than directly on the model.
 
+## Compatibility Chart
+
+| Laravel Auto Presenter Mapper                                              | Laravel    | PHP  |
+|----------------------------------------------------------------------------|------------|------|
+| **2.x**                                                                    | 5.5        | 7.0+ |
+| [1.x](https://github.com/rickselby/laravel-auto-presenter-mapper/tree/1.x) | 5.1? – 5.4 | 5.5+ |
+
+The 1.x branch was only ever tested with 5.4, it may work with earlier versions, as the base package does.
+
 ## Installing
 
 Require the project using [Composer](https://getcomposer.org):
 
 ```bash
 $ composer require rickselby/laravel-auto-presenter-mapper
-```
-
-You should only add this service provider, not the original `laravel-auto-presenter` service provider, as this one
-extends it.
-
-In your `config/app.php` add this line to your 'providers' array...
-
-```php
-RickSelby\LaravelAutoPresenterMapper\AutoPresenterMapperServiceProvider::class,
-```
-
-... and this line to your 'facades' array.
-
-```php
-'Presenters' => \RickSelby\LaravelAutoPresenterMapper\Facades\AutoPresenterMapperFacade::class,
 ```
 
 ## Usage
