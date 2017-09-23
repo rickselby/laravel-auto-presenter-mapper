@@ -9,12 +9,10 @@ that allows you to define presenters in a service provider or on-the-fly, rather
 
 ## Compatibility Chart
 
-| Laravel Auto Presenter Mapper                                              | Laravel    | PHP  |
-|----------------------------------------------------------------------------|------------|------|
-| **2.x**                                                                    | 5.5        | 7.0+ |
-| [1.x](https://github.com/rickselby/laravel-auto-presenter-mapper/tree/1.x) | 5.1? – 5.4 | 5.5+ |
-
-The 1.x branch was only ever tested with 5.4, it may work with earlier versions, as the base package does.
+| Laravel Auto Presenter Mapper                                              | Laravel   | PHP  |
+|----------------------------------------------------------------------------|-----------|------|
+| **2.x**                                                                    | 5.1 – 5.5 | 7.0+ |
+| [1.x](https://github.com/rickselby/laravel-auto-presenter-mapper/tree/1.x) | 5.1 – 5.4 | 5.5+ |
 
 ## Installing
 
