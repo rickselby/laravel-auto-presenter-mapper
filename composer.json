@@ -34,7 +34,10 @@
       ],
       "aliases": {
         "Presenters": "RickSelby\\LaravelAutoPresenterMapper\\Facades\\AutoPresenterMapperFacade"
-      }
+      },
+      "dont-discover": [
+        "mccool/laravel-auto-presenter"
+      ]
     }
   }
 }
