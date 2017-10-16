@@ -1,8 +1,11 @@
 Laravel Auto Presenter Mapper
 =============================
 
-[![Build Status](https://img.shields.io/travis/rickselby/laravel-auto-presenter-mapper/master.svg?style=flat-square)](https://travis-ci.org/rickselby/laravel-auto-presenter-mapper)
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+![PHP 7.0+](https://img.shields.io/badge/php-7.0%2B-blue.svg)
+[![Build Status](https://img.shields.io/travis/rickselby/laravel-auto-presenter-mapper.svg)](https://travis-ci.org/rickselby/laravel-auto-presenter-mapper)
+[![SensioLabs Insight](https://img.shields.io/sensiolabs/i/6a69b118-1651-418b-a8b5-f2780dbc893c.svg)](https://insight.sensiolabs.com/projects/6a69b118-1651-418b-a8b5-f2780dbc893c)
+[![Code Coverage](https://img.shields.io/codecov/c/github/rickselby/laravel-auto-presenter-mapper.svg)](https://codecov.io/gh/rickselby/laravel-auto-presenter-mapper)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 
 This is an extension to the excellent [laravel-auto-presenter](https://github.com/laravel-auto-presenter/laravel-auto-presenter)
 that allows you to define presenters in a service provider or on-the-fly, rather than directly on the model.

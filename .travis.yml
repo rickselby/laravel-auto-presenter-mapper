@@ -22,3 +22,7 @@ before_install:
 install: travis_retry composer install --no-suggest --prefer-dist -n -o
 
 script: vendor/bin/phpunit
+
+after_success:
+# Code coverage report
+  - bash <(curl -s https://codecov.io/bash)
