@@ -27,7 +27,7 @@ class AutoPresenterMapperServiceProvider extends AutoPresenterServiceProvider
      */
     public function registerAutoPresenterMapper(Container $app)
     {
-        $app->singleton('autopresentermapper', function() {
+        $app->singleton('autopresentermapper', function () {
             return new AutoPresenterMapper();
         });
 
