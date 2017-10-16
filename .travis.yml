@@ -26,3 +26,7 @@ script: vendor/bin/phpunit --coverage-clover ./clover.xml
 after_success:
 # Code coverage report
   - bash <(curl -s https://codecov.io/bash)
+
+branches:
+  only:
+    - master
