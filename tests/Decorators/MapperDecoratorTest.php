@@ -14,7 +14,7 @@ use RickSelby\Tests\Stubs\UnmappedStub;
 
 class MapperDecoratorTest extends AbstractTestCase
 {
-    /** @var  MapperDecorator */
+    /** @var MapperDecorator */
     private $decorator;
 
     /**
@@ -27,7 +27,6 @@ class MapperDecoratorTest extends AbstractTestCase
             Mockery::mock(AutoPresenterMapper::class),
             Mockery::mock(Container::class)
         );
-
     }
 
     public function testCanDecoratePresenter()

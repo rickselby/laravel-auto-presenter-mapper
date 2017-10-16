@@ -15,16 +15,15 @@ class AutoPresenterMapper
     }
 
     /**
-     * Add another presenter mapping
+     * Add another presenter mapping.
      *
      * @param $class
      * @param $presenter
      */
     public function map($class, $presenter = null)
     {
-        if (is_array($class))
-        {
-            foreach($class AS $model => $present) {
+        if (is_array($class)) {
+            foreach ($class as $model => $present) {
                 $this->mappings->put($model, $present);
             }
         } else {
@@ -33,7 +32,7 @@ class AutoPresenterMapper
     }
 
     /**
-     * Check if the given class has a presenter mapped
+     * Check if the given class has a presenter mapped.
      *
      * @param $class
      *
@@ -45,7 +44,7 @@ class AutoPresenterMapper
     }
 
     /**
-     * Get the presenter for the given class
+     * Get the presenter for the given class.
      *
      * @param $class
      *
@@ -57,7 +56,7 @@ class AutoPresenterMapper
     }
 
     /**
-     * Get the full list of mappings
+     * Get the full list of mappings.
      *
      * @codeCoverageIgnore
      *
@@ -67,5 +66,4 @@ class AutoPresenterMapper
     {
         return $this->mappings;
     }
-
 }
