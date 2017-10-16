@@ -57,5 +57,4 @@ class ViewDataTest extends AbstractTestCase
         $this->assertInstanceOf(MappedStubPresenter::class, $view->model);
         $this->assertSame('hi there', $view->model->foo);
     }
-
 }

@@ -35,6 +35,17 @@ class AutoPresenterMapperTest extends AbstractTestCase
         $this->assertEquals(MappedStubPresenter::class, $mappings->first());
     }
 
+    public function testSetMappingAsArray()
+    {
+        $this->setMappingAsArray();
+
+        $mappings = $this->autoPresenterMapper->getMappings();
+
+        $this->assertEquals(1, $mappings->count());
+        $this->assertEquals(MappedStub::class, $mappings->keys()->first());
+        $this->assertEquals(MappedStubPresenter::class, $mappings->first());
+    }
+
     public function testHasPresenter()
     {
         $this->setMapping();
@@ -64,4 +75,8 @@ class AutoPresenterMapperTest extends AbstractTestCase
         $this->autoPresenterMapper->map(MappedStub::class, MappedStubPresenter::class);
     }
 
+    protected function setMappingAsArray()
+    {
+        $this->autoPresenterMapper->map([MappedStub::class => MappedStubPresenter::class]);
+    }
 }

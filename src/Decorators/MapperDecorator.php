@@ -46,9 +46,8 @@ class MapperDecorator implements DecoratorInterface
      * Create a new atom decorator.
      *
      * @param \McCool\LaravelAutoPresenter\AutoPresenter $autoPresenter
-     * @param AutoPresenterMapper $autoPresenterMapper
-     * @param \Illuminate\Contracts\Container\Container $container
-     *
+     * @param AutoPresenterMapper                        $autoPresenterMapper
+     * @param \Illuminate\Contracts\Container\Container  $container
      */
     public function __construct(AutoPresenter $autoPresenter, AutoPresenterMapper $autoPresenterMapper, Container $container)
     {
@@ -74,9 +73,9 @@ class MapperDecorator implements DecoratorInterface
      *
      * @param object $subject
      *
-     * @return object
-     *
      * @throws PresenterNotFoundException
+     *
+     * @return object
      */
     public function decorate($subject)
     {
@@ -110,7 +109,7 @@ class MapperDecorator implements DecoratorInterface
     }
 
     /**
-     * Get the mapper instance
+     * Get the mapper instance.
      *
      * @codeCoverageIgnore
      *
