@@ -2,10 +2,10 @@
 
 namespace RickSelby\Tests\Functional;
 
-use RickSelby\LaravelAutoPresenterMapper\AutoPresenterMapper;
 use RickSelby\Tests\AbstractTestCase;
 use RickSelby\Tests\Stubs\MappedStub;
 use RickSelby\Tests\Stubs\MappedStubPresenter;
+use RickSelby\LaravelAutoPresenterMapper\AutoPresenterMapper;
 
 class ViewDataTest extends AbstractTestCase
 {
