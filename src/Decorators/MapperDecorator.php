@@ -12,12 +12,12 @@
 
 namespace RickSelby\LaravelAutoPresenterMapper\Decorators;
 
-use Illuminate\Contracts\Container\Container;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Container\Container;
 use McCool\LaravelAutoPresenter\AutoPresenter;
+use RickSelby\LaravelAutoPresenterMapper\AutoPresenterMapper;
 use McCool\LaravelAutoPresenter\Decorators\DecoratorInterface;
 use McCool\LaravelAutoPresenter\Exceptions\PresenterNotFoundException;
-use RickSelby\LaravelAutoPresenterMapper\AutoPresenterMapper;
 
 class MapperDecorator implements DecoratorInterface
 {
@@ -89,7 +89,7 @@ class MapperDecorator implements DecoratorInterface
             }
         }
 
-        if (!class_exists($presenter = $this->autoPresenterMapper->getPresenter($subject))) {
+        if (! class_exists($presenter = $this->autoPresenterMapper->getPresenter($subject))) {
             throw new PresenterNotFoundException($presenter);
         }
 
