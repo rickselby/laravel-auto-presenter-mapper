@@ -38,9 +38,9 @@ class AutoPresenterMapper
      */
     public function remove($class)
     {
-        if ($this->mappings->has($class) {
-            $this->mappings->forget($class)
-        });
+        if ($this->mappings->has($class)) {
+            $this->mappings->forget($class);
+        }
     }
 
     /**
