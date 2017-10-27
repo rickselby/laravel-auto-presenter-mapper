@@ -46,6 +46,16 @@ class AutoPresenterMapperTest extends AbstractTestCase
         $this->assertEquals(MappedStubPresenter::class, $mappings->first());
     }
 
+    public function testRemoveMapping()
+    {
+        $this->setMapping();
+        $this->autoPresenterMapper->remove(MappedStub::class);
+
+        $mappings = $this->autoPresenterMapper->getMappings();
+
+        $this->assertEquals(0, $mappings->count());
+    }
+
     public function testHasPresenter()
     {
         $this->setMapping();
