@@ -101,40 +101,4 @@ class MapperDecorator implements DecoratorInterface
 
         return $this->container->make($presenter)->setWrappedObject($subject);
     }
-
-    /**
-     * Get the auto presenter instance.
-     *
-     * @codeCoverageIgnore
-     *
-     * @return \McCool\LaravelAutoPresenter\AutoPresenter
-     */
-    public function getAutoPresenter()
-    {
-        return $this->autoPresenter;
-    }
-
-    /**
-     * Get the mapper instance.
-     *
-     * @codeCoverageIgnore
-     *
-     * @return AutoPresenterMapper
-     */
-    public function getAutoPresenterMapper()
-    {
-        return $this->autoPresenterMapper;
-    }
-
-    /**
-     * Get the container instance.
-     *
-     * @codeCoverageIgnore
-     *
-     * @return \Illuminate\Contracts\Container\Container
-     */
-    public function getContainer()
-    {
-        return $this->container;
-    }
 }

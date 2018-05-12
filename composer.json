@@ -10,12 +10,11 @@
     }
   ],
   "require": {
-    "mccool/laravel-auto-presenter": "^6.0"
+    "mccool/laravel-auto-presenter": "^7.0"
   },
   "require-dev": {
-    "graham-campbell/testbench": "^4.0",
-    "mockery/mockery": "^0.9.8",
-    "phpunit/phpunit": "^6.0"
+    "graham-campbell/testbench": "^5.0",
+    "phpunit/phpunit": "^6.0|^7.0"
   },
   "autoload": {
     "psr-4": {

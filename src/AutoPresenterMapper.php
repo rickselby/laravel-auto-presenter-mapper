@@ -18,7 +18,7 @@ class AutoPresenterMapper
      * Add another presenter mapping.
      *
      * @param string|array $class
-     * @param string|null $presenter [optional]
+     * @param string|null $presenter [optional if array passed]
      */
     public function map($class, $presenter = null)
     {
@@ -56,7 +56,7 @@ class AutoPresenterMapper
     /**
      * Check if the given class has a presenter mapped.
      *
-     * @param string $class
+     * @param object $class
      *
      * @return bool
      */
@@ -68,24 +68,12 @@ class AutoPresenterMapper
     /**
      * Get the presenter for the given class.
      *
-     * @param string $class
+     * @param object $class
      *
      * @return mixed
      */
     public function getPresenter($class)
     {
         return $this->mappings->get(get_class($class));
-    }
-
-    /**
-     * Get the full list of mappings.
-     *
-     * @codeCoverageIgnore
-     *
-     * @return Collection
-     */
-    public function getMappings()
-    {
-        return $this->mappings;
     }
 }
