@@ -2,7 +2,6 @@
 
 namespace RickSelby\Tests;
 
-use Illuminate\Support\Collection;
 use RickSelby\Tests\Stubs\MappedStub;
 use RickSelby\Tests\Stubs\UnmappedStub;
 use RickSelby\Tests\Stubs\MappedStubPresenter;

@@ -2,8 +2,6 @@
 
 namespace RickSelby\Tests\Decorators;
 
-use Mockery;
-use RickSelby\Tests\AutoPresenterMapperTest;
 use RickSelby\Tests\Stubs\MappedStub;
 use RickSelby\Tests\Stubs\UnmappedStub;
 use Illuminate\Contracts\Container\Container;
