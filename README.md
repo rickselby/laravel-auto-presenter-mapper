@@ -81,6 +81,22 @@ public function show(User $user)
 }
 ```
 
+### Decoratable
+
+To mimic the `Decoratable` interface of the parent package, you can call `decoratable`:
+
+```php
+public function register()
+{
+    \Presenters::decorate(User::class);
+    \Presenters::decorate([
+        User::class,
+        ...
+    ]);
+    ...
+}
+```
+
 ## License
 
 Laravel Auto Presenter Mapper is licensed under [The MIT License (MIT)](LICENSE).

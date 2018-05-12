@@ -3,6 +3,7 @@
 namespace RickSelby\Tests\Decorators;
 
 use Mockery;
+use RickSelby\Tests\AutoPresenterMapperTest;
 use RickSelby\Tests\Stubs\MappedStub;
 use RickSelby\Tests\Stubs\UnmappedStub;
 use Illuminate\Contracts\Container\Container;
@@ -17,45 +18,70 @@ class MapperDecoratorTest extends AbstractTestCase
     /** @var MapperDecorator */
     private $decorator;
 
+    /** @var \PHPUnit_Framework_MockObject_MockObject */
+    private $autoPresenter;
+    /** @var \PHPUnit_Framework_MockObject_MockObject */
+    private $autoPresenterMapper;
+    /** @var \PHPUnit_Framework_MockObject_MockObject */
+    private $container;
+
     /**
      * @before
      */
     public function setUpProperties()
     {
+        $this->autoPresenter = $this->createMock(AutoPresenter::class);
+        $this->autoPresenterMapper = $this->createMock(AutoPresenterMapper::class);
+        $this->container = $this->createMock(Container::class);
+
+        $this->container->method('make')
+            ->with(MappedStubPresenter::class)
+            ->willReturn(new MappedStubPresenter());
+
         $this->decorator = new MapperDecorator(
-            Mockery::mock(AutoPresenter::class),
-            Mockery::mock(AutoPresenterMapper::class),
-            Mockery::mock(Container::class)
+            $this->autoPresenter,
+            $this->autoPresenterMapper,
+            $this->container
         );
     }
 
     public function testCanDecoratePresenter()
     {
         $mappedStub = new MappedStub();
-        $this->decorator->getAutoPresenterMapper()->shouldReceive('hasPresenter')->once()
-            ->with($mappedStub)->andReturn(true);
+        $this->autoPresenterMapper->method('hasPresenter')->willReturn(true);
         $this->assertTrue($this->decorator->canDecorate($mappedStub));
+    }
 
+    public function testCannotDecorateNonPresentable()
+    {
         $unmappedStub = new UnmappedStub();
-        $this->decorator->getAutoPresenterMapper()->shouldReceive('hasPresenter')->once()
-            ->with($unmappedStub)->andReturn(false);
+        $this->autoPresenterMapper->method('hasPresenter')->willReturn(false);
         $this->assertFalse($this->decorator->canDecorate($unmappedStub));
+    }
+
+    public function testWillReturnPresenter()
+    {
+        $model = $this->createMock(MappedStub::class);
+        $model->method('getRelations')->willReturn([]);
+        $this->autoPresenterMapper->method('getPresenter')
+            ->willReturn(MappedStubPresenter::class);
+
+        $this->assertInstanceOf(MappedStubPresenter::class, $this->decorator->decorate($model));
     }
 
     public function testShouldHandleRelations()
     {
-        $model = Mockery::mock(MappedStub::class);
+        $model = $this->createMock(MappedStub::class);
         $relations = ['blah'];
 
-        $this->decorator->getAutoPresenter()->shouldReceive('decorate')->once()
-            ->with($relations[0])->andReturn('foo');
+        $this->autoPresenter->method('decorate')->with($relations[0])->willReturn('foo');
+        $this->autoPresenterMapper->method('getPresenter')
+            ->willReturn(MappedStubPresenter::class);
 
-        $this->decorator->getAutoPresenterMapper()->shouldReceive('getPresenter')->once()
-            ->andReturn(MappedStubPresenter::class);
+        $model->method('getRelations')->willReturn($relations);
 
-        $model->shouldReceive('getRelations')->once()->andReturn($relations);
-        $model->shouldReceive('setRelation')->once()->with(0, 'foo');
-        $this->decorator->getContainer()->shouldReceive('make')->once()->andReturn(new MappedStubPresenter($model));
+        // Check the relation is updated as expected
+        $model->expects($this->once())->method('setRelation')->with(0, 'foo');
 
         $this->decorator->decorate($model);
     }
@@ -65,18 +91,22 @@ class MapperDecoratorTest extends AbstractTestCase
      */
     public function testWillThrowExceptionIfPresenterDoesNotExist()
     {
-        $model = Mockery::mock(MappedStub::class);
-        $relations = ['blah'];
+        $model = $this->createMock(MappedStub::class);
 
-        $this->decorator->getAutoPresenter()->shouldReceive('decorate')->once()
-            ->with($relations[0])->andReturn('foo');
+        $this->autoPresenterMapper->method('getPresenter')->willReturn('ClassDoesNotExist');
 
-        $this->decorator->getAutoPresenterMapper()->shouldReceive('getPresenter')->once()
-            ->andReturn('ClassDoesNotExist');
-
-        $model->shouldReceive('getRelations')->once()->andReturn($relations);
-        $model->shouldReceive('setRelation')->once()->with(0, 'foo');
+        $model->method('getRelations')->willReturn([]);
 
         $this->decorator->decorate($model);
+    }
+
+    public function testWillNotPresentDecoratable()
+    {
+        $model = $this->createMock(MappedStub::class);
+        $model->method('getRelations')->willReturn([]);
+
+        $this->autoPresenterMapper->method('getPresenter')->willReturn(null);
+
+        $this->assertInstanceOf(MappedStub::class, $this->decorator->decorate($model));
     }
 }

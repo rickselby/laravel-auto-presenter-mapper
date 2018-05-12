@@ -89,7 +89,13 @@ class MapperDecorator implements DecoratorInterface
             }
         }
 
-        if (! class_exists($presenter = $this->autoPresenterMapper->getPresenter($subject))) {
+        $presenter = $this->autoPresenterMapper->getPresenter($subject);
+
+        if ($presenter === null) {
+            return $subject;
+        }
+
+        if (! class_exists($presenter)) {
             throw new PresenterNotFoundException($presenter);
         }
 
