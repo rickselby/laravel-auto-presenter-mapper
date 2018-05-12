@@ -2,7 +2,6 @@
 
 namespace RickSelby\Tests;
 
-use Illuminate\Support\Collection;
 use RickSelby\Tests\Stubs\MappedStub;
 use RickSelby\Tests\Stubs\UnmappedStub;
 use RickSelby\Tests\Stubs\MappedStubPresenter;
@@ -19,55 +18,47 @@ class AutoPresenterMapperTest extends AbstractTestCase
         $this->autoPresenterMapper = $app->make(AutoPresenterMapper::class);
     }
 
-    public function testMappingsIsCollection()
-    {
-        $this->assertInstanceOf(Collection::class, $this->autoPresenterMapper->getMappings());
-    }
-
-    public function testSetMapping()
+    public function testSetMappingHasMapping()
     {
         $this->setMapping();
+        $this->assertTrue($this->autoPresenterMapper->hasPresenter(new MappedStub()));
+    }
 
-        $mappings = $this->autoPresenterMapper->getMappings();
+    public function testSetMappingDoesNotSetForUnmapped()
+    {
+        $this->setMapping();
+        $this->assertFalse($this->autoPresenterMapper->hasPresenter(new UnmappedStub()));
+    }
 
-        $this->assertEquals(1, $mappings->count());
-        $this->assertEquals(MappedStub::class, $mappings->keys()->first());
-        $this->assertEquals(MappedStubPresenter::class, $mappings->first());
+    public function testSetMappingReturnsCorrectClass()
+    {
+        $this->setMapping();
+        $this->assertEquals(MappedStubPresenter::class, $this->autoPresenterMapper->getPresenter(new MappedStub()));
     }
 
     public function testSetMappingAsArray()
     {
         $this->setMappingAsArray();
-
-        $mappings = $this->autoPresenterMapper->getMappings();
-
-        $this->assertEquals(1, $mappings->count());
-        $this->assertEquals(MappedStub::class, $mappings->keys()->first());
-        $this->assertEquals(MappedStubPresenter::class, $mappings->first());
+        $this->assertTrue($this->autoPresenterMapper->hasPresenter(new MappedStub()));
     }
 
     public function testRemoveMapping()
     {
         $this->setMapping();
         $this->autoPresenterMapper->remove(MappedStub::class);
-
-        $mappings = $this->autoPresenterMapper->getMappings();
-
-        $this->assertEquals(0, $mappings->count());
+        $this->assertFalse($this->autoPresenterMapper->hasPresenter(new MappedStub()));
     }
 
-    public function testHasPresenter()
+    public function testDecorating()
     {
-        $this->setMapping();
-        $this->assertTrue($this->autoPresenterMapper->hasPresenter($this->getMappedStub()));
-        $this->assertFalse($this->autoPresenterMapper->hasPresenter($this->getUnmappedStub()));
+        $this->setDecorating();
+        $this->assertTrue($this->autoPresenterMapper->hasPresenter(new MappedStub()));
     }
 
-    public function testGetPresenter()
+    public function testDecoratingReturnsNoClass()
     {
-        $this->setMapping();
-        $this->assertEquals(MappedStubPresenter::class, $this->autoPresenterMapper->getPresenter($this->getMappedStub()));
-        $this->assertNull($this->autoPresenterMapper->getPresenter($this->getUnmappedStub()));
+        $this->setDecorating();
+        $this->assertNull($this->autoPresenterMapper->getPresenter(new MappedStub()));
     }
 
     protected function getMappedStub()
@@ -88,5 +79,10 @@ class AutoPresenterMapperTest extends AbstractTestCase
     protected function setMappingAsArray()
     {
         $this->autoPresenterMapper->map([MappedStub::class => MappedStubPresenter::class]);
+    }
+
+    protected function setDecorating()
+    {
+        $this->autoPresenterMapper->decorate(MappedStub::class);
     }
 }

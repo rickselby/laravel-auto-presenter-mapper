@@ -32,6 +32,16 @@ class AutoPresenterMapper
     }
 
     /**
+     * Add a decoratable model (it has no presenter, but its relations can be decorated).
+     *
+     * @param $class
+     */
+    public function decorate($class)
+    {
+        $this->map($class, null);
+    }
+
+    /**
      * Remove a presenter mapping.
      *
      * @param string $class
