@@ -61,6 +61,12 @@ class AutoPresenterMapperTest extends AbstractTestCase
         $this->assertNull($this->autoPresenterMapper->getPresenter(new MappedStub()));
     }
 
+    public function testDecoratingAsArray()
+    {
+        $this->setDecoratingAsArray();
+        $this->assertTrue($this->autoPresenterMapper->hasPresenter(new MappedStub()));
+    }
+
     protected function getMappedStub()
     {
         return new MappedStub();
@@ -84,5 +90,10 @@ class AutoPresenterMapperTest extends AbstractTestCase
     protected function setDecorating()
     {
         $this->autoPresenterMapper->decorate(MappedStub::class);
+    }
+
+    protected function setDecoratingAsArray()
+    {
+        $this->autoPresenterMapper->decorate([MappedStub::class]);
     }
 }
