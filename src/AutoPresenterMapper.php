@@ -38,7 +38,13 @@ class AutoPresenterMapper
      */
     public function decorate($class)
     {
-        $this->map($class, null);
+        if (is_array($class)) {
+            foreach ($class as $model) {
+                $this->mappings->put($model, null);
+            }
+        } else {
+            $this->mappings->put($class, null);
+        }
     }
 
     /**
