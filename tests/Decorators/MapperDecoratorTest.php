@@ -5,6 +5,7 @@ namespace RickSelby\Tests\Decorators;
 use GrahamCampbell\TestBench\AbstractTestCase;
 use Illuminate\Contracts\Container\Container;
 use McCool\LaravelAutoPresenter\AutoPresenter;
+use McCool\LaravelAutoPresenter\Exceptions\PresenterNotFoundException;
 use RickSelby\LaravelAutoPresenterMapper\AutoPresenterMapper;
 use RickSelby\LaravelAutoPresenterMapper\Decorators\MapperDecorator;
 use RickSelby\Tests\Stubs\MappedStub;
@@ -86,7 +87,7 @@ class MapperDecoratorTest extends AbstractTestCase
 
     public function testWillThrowExceptionIfPresenterDoesNotExist()
     {
-        $this->expectException(McCool\LaravelAutoPresenter\Exceptions\PresenterNotFoundException::class);
+        $this->expectException(PresenterNotFoundException::class);
 
         $model = $this->createMock(MappedStub::class);
 
