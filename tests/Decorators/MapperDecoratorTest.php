@@ -2,14 +2,14 @@
 
 namespace RickSelby\Tests\Decorators;
 
-use RickSelby\Tests\Stubs\MappedStub;
-use RickSelby\Tests\Stubs\UnmappedStub;
-use Illuminate\Contracts\Container\Container;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use Illuminate\Contracts\Container\Container;
 use McCool\LaravelAutoPresenter\AutoPresenter;
-use RickSelby\Tests\Stubs\MappedStubPresenter;
 use RickSelby\LaravelAutoPresenterMapper\AutoPresenterMapper;
 use RickSelby\LaravelAutoPresenterMapper\Decorators\MapperDecorator;
+use RickSelby\Tests\Stubs\MappedStub;
+use RickSelby\Tests\Stubs\MappedStubPresenter;
+use RickSelby\Tests\Stubs\UnmappedStub;
 
 class MapperDecoratorTest extends AbstractTestCase
 {

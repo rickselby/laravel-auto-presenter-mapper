@@ -2,18 +2,17 @@
 
 namespace RickSelby\Tests\Functional;
 
+use RickSelby\LaravelAutoPresenterMapper\AutoPresenterMapper;
 use RickSelby\Tests\AbstractTestCase;
 use RickSelby\Tests\Stubs\MappedStub;
 use RickSelby\Tests\Stubs\MappedStubPresenter;
-use RickSelby\LaravelAutoPresenterMapper\AutoPresenterMapper;
 
 class ViewDataTest extends AbstractTestCase
 {
     /**
      * Setup the application environment.
      *
-     * @param \Illuminate\Contracts\Foundation\Application $app
-     *
+     * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @return void
      */
     protected function getEnvironmentSetUp($app)

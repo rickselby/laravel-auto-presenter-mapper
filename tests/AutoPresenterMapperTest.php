@@ -2,10 +2,10 @@
 
 namespace RickSelby\Tests;
 
-use RickSelby\Tests\Stubs\MappedStub;
-use RickSelby\Tests\Stubs\UnmappedStub;
-use RickSelby\Tests\Stubs\MappedStubPresenter;
 use RickSelby\LaravelAutoPresenterMapper\AutoPresenterMapper;
+use RickSelby\Tests\Stubs\MappedStub;
+use RickSelby\Tests\Stubs\MappedStubPresenter;
+use RickSelby\Tests\Stubs\UnmappedStub;
 
 class AutoPresenterMapperTest extends AbstractTestCase
 {
