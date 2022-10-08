@@ -23,7 +23,7 @@ class AutoPresenterMapperServiceProvider extends AutoPresenterServiceProvider
     /**
      * Register the Mapper decorator.
      *
-     * @param Container $app
+     * @param  Container  $app
      */
     public function registerAutoPresenterMapper(Container $app)
     {

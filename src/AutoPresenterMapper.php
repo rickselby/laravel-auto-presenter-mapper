@@ -17,8 +17,8 @@ class AutoPresenterMapper
     /**
      * Add another presenter mapping.
      *
-     * @param string|array $class
-     * @param string|null $presenter [optional if array passed]
+     * @param  string|array  $class
+     * @param  string|null  $presenter  [optional if array passed]
      */
     public function map($class, $presenter = null)
     {
@@ -50,7 +50,7 @@ class AutoPresenterMapper
     /**
      * Remove a presenter mapping.
      *
-     * @param string $class
+     * @param  string  $class
      */
     public function remove($class)
     {
@@ -62,8 +62,7 @@ class AutoPresenterMapper
     /**
      * Check if the given class has a presenter mapped.
      *
-     * @param object $class
-     *
+     * @param  object  $class
      * @return bool
      */
     public function hasPresenter($class)
@@ -74,8 +73,7 @@ class AutoPresenterMapper
     /**
      * Get the presenter for the given class.
      *
-     * @param object $class
-     *
+     * @param  object  $class
      * @return mixed
      */
     public function getPresenter($class)

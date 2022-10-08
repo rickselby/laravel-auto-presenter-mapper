@@ -1,10 +1,6 @@
 Laravel Auto Presenter Mapper
 =============================
 
-![PHP 7.0+](https://img.shields.io/badge/php-7.0%2B-blue.svg)
-[![Build Status](https://img.shields.io/travis/rickselby/laravel-auto-presenter-mapper.svg)](https://travis-ci.org/rickselby/laravel-auto-presenter-mapper)
-[![SensioLabs Insight](https://img.shields.io/sensiolabs/i/6a69b118-1651-418b-a8b5-f2780dbc893c.svg)](https://insight.sensiolabs.com/projects/6a69b118-1651-418b-a8b5-f2780dbc893c)
-[![Code Coverage](https://img.shields.io/codecov/c/github/rickselby/laravel-auto-presenter-mapper.svg)](https://codecov.io/gh/rickselby/laravel-auto-presenter-mapper)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 
 This is an extension to the excellent [laravel-auto-presenter](https://github.com/laravel-auto-presenter/laravel-auto-presenter)
@@ -14,7 +10,7 @@ that allows you to define presenters in a service provider or on-the-fly, rather
 
 | Laravel Auto Presenter Mapper                                              | Laravel   | PHP    |
 |----------------------------------------------------------------------------|-----------|--------|
-| **3.x**                                                                    | 5.5 – 5.6 | 7.1.3+ |
+| **3.x**                                                                    | 5.5+      | 7.1.3+ |
 | [2.x](https://github.com/rickselby/laravel-auto-presenter-mapper/tree/2.x) | 5.1 – 5.5 | 7.0+   |
 | [1.x](https://github.com/rickselby/laravel-auto-presenter-mapper/tree/1.x) | 5.1 – 5.4 | 5.5+   |
 

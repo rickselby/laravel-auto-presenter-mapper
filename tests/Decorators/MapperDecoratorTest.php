@@ -2,14 +2,15 @@
 
 namespace RickSelby\Tests\Decorators;
 
-use RickSelby\Tests\Stubs\MappedStub;
-use RickSelby\Tests\Stubs\UnmappedStub;
-use Illuminate\Contracts\Container\Container;
 use GrahamCampbell\TestBench\AbstractTestCase;
+use Illuminate\Contracts\Container\Container;
 use McCool\LaravelAutoPresenter\AutoPresenter;
-use RickSelby\Tests\Stubs\MappedStubPresenter;
+use McCool\LaravelAutoPresenter\Exceptions\PresenterNotFoundException;
 use RickSelby\LaravelAutoPresenterMapper\AutoPresenterMapper;
 use RickSelby\LaravelAutoPresenterMapper\Decorators\MapperDecorator;
+use RickSelby\Tests\Stubs\MappedStub;
+use RickSelby\Tests\Stubs\MappedStubPresenter;
+use RickSelby\Tests\Stubs\UnmappedStub;
 
 class MapperDecoratorTest extends AbstractTestCase
 {
@@ -84,11 +85,10 @@ class MapperDecoratorTest extends AbstractTestCase
         $this->decorator->decorate($model);
     }
 
-    /**
-     * @expectedException McCool\LaravelAutoPresenter\Exceptions\PresenterNotFoundException
-     */
     public function testWillThrowExceptionIfPresenterDoesNotExist()
     {
+        $this->expectException(PresenterNotFoundException::class);
+
         $model = $this->createMock(MappedStub::class);
 
         $this->autoPresenterMapper->method('getPresenter')->willReturn('ClassDoesNotExist');

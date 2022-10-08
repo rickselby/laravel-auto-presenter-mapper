@@ -14,7 +14,7 @@
   },
   "require-dev": {
     "graham-campbell/testbench": "^5.0",
-    "phpunit/phpunit": "^6.0|^7.0"
+    "phpunit/phpunit": "^6.0|^7.0|^8.0|^9.0|^10.0"
   },
   "autoload": {
     "psr-4": {
@@ -38,5 +38,8 @@
         "mccool/laravel-auto-presenter"
       ]
     }
+  },
+  "config": {
+    "allow-plugins": false
   }
 }

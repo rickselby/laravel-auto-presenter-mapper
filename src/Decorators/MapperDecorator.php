@@ -12,12 +12,12 @@
 
 namespace RickSelby\LaravelAutoPresenterMapper\Decorators;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Container\Container;
+use Illuminate\Database\Eloquent\Model;
 use McCool\LaravelAutoPresenter\AutoPresenter;
-use RickSelby\LaravelAutoPresenterMapper\AutoPresenterMapper;
 use McCool\LaravelAutoPresenter\Decorators\DecoratorInterface;
 use McCool\LaravelAutoPresenter\Exceptions\PresenterNotFoundException;
+use RickSelby\LaravelAutoPresenterMapper\AutoPresenterMapper;
 
 class MapperDecorator implements DecoratorInterface
 {
@@ -45,9 +45,9 @@ class MapperDecorator implements DecoratorInterface
     /**
      * Create a new atom decorator.
      *
-     * @param \McCool\LaravelAutoPresenter\AutoPresenter $autoPresenter
-     * @param AutoPresenterMapper                        $autoPresenterMapper
-     * @param \Illuminate\Contracts\Container\Container  $container
+     * @param  \McCool\LaravelAutoPresenter\AutoPresenter  $autoPresenter
+     * @param  AutoPresenterMapper  $autoPresenterMapper
+     * @param  \Illuminate\Contracts\Container\Container  $container
      */
     public function __construct(AutoPresenter $autoPresenter, AutoPresenterMapper $autoPresenterMapper, Container $container)
     {
@@ -59,8 +59,7 @@ class MapperDecorator implements DecoratorInterface
     /**
      * Can the subject be decorated?
      *
-     * @param mixed $subject
-     *
+     * @param  mixed  $subject
      * @return bool
      */
     public function canDecorate($subject)
@@ -71,11 +70,10 @@ class MapperDecorator implements DecoratorInterface
     /**
      * Decorate a given subject.
      *
-     * @param object $subject
+     * @param  object  $subject
+     * @return object
      *
      * @throws PresenterNotFoundException
-     *
-     * @return object
      */
     public function decorate($subject)
     {
