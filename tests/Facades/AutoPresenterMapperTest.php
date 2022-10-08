@@ -2,10 +2,10 @@
 
 namespace RickSelby\Tests\Facades;
 
-use RickSelby\Tests\AbstractTestCase;
 use GrahamCampbell\TestBenchCore\FacadeTrait;
 use RickSelby\LaravelAutoPresenterMapper\AutoPresenterMapper;
 use RickSelby\LaravelAutoPresenterMapper\Facades\AutoPresenterMapperFacade as Facade;
+use RickSelby\Tests\AbstractTestCase;
 
 class AutoPresenterMapperTest extends AbstractTestCase
 {
