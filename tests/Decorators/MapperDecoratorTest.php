@@ -84,11 +84,10 @@ class MapperDecoratorTest extends AbstractTestCase
         $this->decorator->decorate($model);
     }
 
-    /**
-     * @expectedException McCool\LaravelAutoPresenter\Exceptions\PresenterNotFoundException
-     */
     public function testWillThrowExceptionIfPresenterDoesNotExist()
     {
+        $this->expectException(McCool\LaravelAutoPresenter\Exceptions\PresenterNotFoundException::class);
+
         $model = $this->createMock(MappedStub::class);
 
         $this->autoPresenterMapper->method('getPresenter')->willReturn('ClassDoesNotExist');
