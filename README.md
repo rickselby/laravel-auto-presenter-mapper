@@ -2,17 +2,18 @@ Laravel Auto Presenter Mapper
 =============================
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
+![Packagist Version](https://img.shields.io/packagist/v/rickselby/laravel-auto-presenter-mapper)
 
 This is an extension to the excellent [laravel-auto-presenter](https://github.com/laravel-auto-presenter/laravel-auto-presenter)
 that allows you to define presenters in a service provider or on-the-fly, rather than directly on the model.
 
 ## Compatibility Chart
 
-| Laravel Auto Presenter Mapper                                              | Laravel   | PHP    |
-|----------------------------------------------------------------------------|-----------|--------|
-| **3.x**                                                                    | 5.5+      | 7.1.3+ |
-| [2.x](https://github.com/rickselby/laravel-auto-presenter-mapper/tree/2.x) | 5.1 – 5.5 | 7.0+   |
-| [1.x](https://github.com/rickselby/laravel-auto-presenter-mapper/tree/1.x) | 5.1 – 5.4 | 5.5+   |
+| Laravel Auto Presenter Mapper                                              | `laravel-auto-presenter` |
+|----------------------------------------------------------------------------|--------------------------|
+| **3.x**                                                                    | 7.x                      |
+| [2.x](https://github.com/rickselby/laravel-auto-presenter-mapper/tree/2.x) | 6.x                      |
+| [1.x](https://github.com/rickselby/laravel-auto-presenter-mapper/tree/1.x) | 5.x                      |
 
 ## Installing
 
@@ -22,7 +23,7 @@ Require the project using [Composer](https://getcomposer.org):
 $ composer require rickselby/laravel-auto-presenter-mapper
 ```
 
-Laravel 5.5 will auto-discover the package.
+Laravel 5.5+ will auto-discover the package.
 
 For Laravel 5.1-5.4, you should only add this service provider, not the original `laravel-auto-presenter` service provider, as this one
 extends it.
