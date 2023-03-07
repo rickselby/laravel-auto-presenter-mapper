@@ -16,7 +16,7 @@ class AutoPresenterMapperTest extends AbstractTestCase
      *
      * @return string
      */
-    protected function getFacadeAccessor()
+    protected static function getFacadeAccessor(): string
     {
         return 'autopresentermapper';
     }
@@ -26,7 +26,7 @@ class AutoPresenterMapperTest extends AbstractTestCase
      *
      * @return string
      */
-    protected function getFacadeClass()
+    protected static function getFacadeClass(): string
     {
         return Facade::class;
     }
@@ -36,7 +36,7 @@ class AutoPresenterMapperTest extends AbstractTestCase
      *
      * @return string
      */
-    protected function getFacadeRoot()
+    protected static function getFacadeRoot(): string
     {
         return AutoPresenterMapper::class;
     }

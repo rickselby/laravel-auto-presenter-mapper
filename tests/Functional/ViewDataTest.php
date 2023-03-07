@@ -15,7 +15,7 @@ class ViewDataTest extends AbstractTestCase
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @return void
      */
-    protected function getEnvironmentSetUp($app)
+    protected function getEnvironmentSetUp($app): void
     {
         parent::getEnvironmentSetUp($app);
 
