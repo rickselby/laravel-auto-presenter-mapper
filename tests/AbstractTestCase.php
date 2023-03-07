@@ -7,7 +7,7 @@ use RickSelby\LaravelAutoPresenterMapper\AutoPresenterMapperServiceProvider;
 
 abstract class AbstractTestCase extends AbstractPackageTestCase
 {
-    protected function getServiceProviderClass()
+    protected static function getServiceProviderClass(): string
     {
         return AutoPresenterMapperServiceProvider::class;
     }
