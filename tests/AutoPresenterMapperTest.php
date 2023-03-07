@@ -12,7 +12,7 @@ class AutoPresenterMapperTest extends AbstractTestCase
     /** @var AutoPresenterMapper */
     private $autoPresenterMapper;
 
-    protected function getEnvironmentSetUp($app)
+    protected function getEnvironmentSetUp($app): void
     {
         parent::getEnvironmentSetUp($app);
         $this->autoPresenterMapper = $app->make(AutoPresenterMapper::class);
