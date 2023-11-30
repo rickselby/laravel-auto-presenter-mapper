@@ -34,7 +34,7 @@ class AutoPresenterMapper
     /**
      * Add a decoratable model (it has no presenter, but its relations can be decorated).
      *
-     * @param $class
+     * @param  $class
      */
     public function decorate($class)
     {
